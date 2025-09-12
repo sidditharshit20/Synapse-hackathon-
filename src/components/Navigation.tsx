@@ -1,6 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Train, Home, Phone, LogOut } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Train, Home, Phone, LogOut, Sun, Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface NavigationProps {
   isAuthenticated?: boolean;
@@ -10,8 +13,24 @@ interface NavigationProps {
 
 const Navigation = ({ isAuthenticated = false, onLogout, userName }: NavigationProps) => {
   const location = useLocation();
+  const [isDark, setIsDark] = useState(true);
 
   const isActive = (path: string) => location.pathname === path;
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDark(savedTheme === 'dark');
+    }
+    document.documentElement.classList.toggle('dark', isDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', newTheme);
+  };
 
   return (
     <nav className="bg-surface border-b border-border">
@@ -72,6 +91,14 @@ const Navigation = ({ isAuthenticated = false, onLogout, userName }: NavigationP
                   <LogOut className="h-4 w-4" />
                   <span>Logout</span>
                 </Button>
+                <div className="flex items-center space-x-2">
+                  <Sun className="h-4 w-4" />
+                  <Switch
+                    checked={isDark}
+                    onCheckedChange={toggleTheme}
+                  />
+                  <Moon className="h-4 w-4" />
+                </div>
               </div>
             ) : (
               <Link to="/auth">

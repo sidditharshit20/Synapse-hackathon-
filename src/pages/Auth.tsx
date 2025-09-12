@@ -92,6 +92,21 @@ const Auth = ({ onLogin }: AuthProps) => {
             <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="space-y-2">
+                  <Label htmlFor="employeeId">Employee ID</Label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      id="employeeId"
+                      name="employeeId"
+                      type="text"
+                      placeholder="Enter your employee ID"
+                      className="pl-10"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
