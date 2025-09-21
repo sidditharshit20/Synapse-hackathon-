@@ -9,6 +9,9 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
+    "homepage": "ananyasarkar7.github.io/https://github.com/sidditharshit20/Synapse-hackathon-"
+
+    
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
