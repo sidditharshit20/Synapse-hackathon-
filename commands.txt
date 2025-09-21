@@ -1,0 +1,5 @@
+git clone <--HTTP link-->       is used to clone the online files,folders in GITHUB to our local machine
+git status                      is used to check the status of our repo
+git add <--filename-->          is used to add the changes made to a file in offline machine
+git commit                      is used to commit the changes i.e it officially records the changes made in the files
+git push origin main            is used to push those changes to the online GITHUB repository to the 'main' branch
