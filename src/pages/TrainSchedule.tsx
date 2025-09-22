@@ -22,7 +22,7 @@ const trainData: Train[] = [
     trainType: "",
     arrivalTime: "",
     departureTime: "",
-    platformNo: ,
+    platformNo:
   },
   {
     trainNo: "",
@@ -30,7 +30,7 @@ const trainData: Train[] = [
     trainType: "",
     arrivalTime: "",
     departureTime: "",
-    platformNo:,
+    platformNo:
   },
   {
     trainNo: "",
@@ -46,7 +46,7 @@ const trainData: Train[] = [
     trainType: "",
     arrivalTime: "",
     departureTime: "",
-    platformNo: ,
+    platformNo: 
   },
   {
     trainNo: "",
@@ -54,7 +54,7 @@ const trainData: Train[] = [
     trainType: "",
     arrivalTime: "",
     departureTime: "",
-    platformNo: ,
+    platformNo: 
   },
 ];
 
