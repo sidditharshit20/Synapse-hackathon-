@@ -4,18 +4,22 @@ import copy
 import threading
 from typing import Dict, List, Tuple, Optional
 
-import http.client
+import requests
 
-conn = http.client.HTTPSConnection("railradar.in")
+requests.get("https://railradar.in/api/v1/trains/list",
+    headers={
+      "x-api-key": "YOUR_SECRET_TOKEN"
+    },
+    params={
+      "page": "1",
+      "limit": "50",
+      "type": "Express",
+      "zone": "WR",
+      "search": "rajdhani"
+    }
+)
 
-headers = { 'x-api-key': "rr_live_EXPo2kM5HHtFeQiGlZm6w4FhBJHmlaYj" }
 
-conn.request("GET", "/api/v1/trains/live-map", headers=headers)
-
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
 
 # ----------------------------
 # Config: GA & runtime params
@@ -29,7 +33,6 @@ POLL_INTERVAL = 6       # seconds between checking for live updates in demo (adj
 WARM_START_ON_UPDATE = True
 
 random.seed(RANDOM_SEED)
-
 # ----------------------------
 # Priority weights & headway
 # ----------------------------
