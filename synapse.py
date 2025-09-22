@@ -17,6 +17,33 @@ data = res.read()
 
 print(data.decode("utf-8"))
 
+# ----------------------------
+# Config: GA & runtime params
+# ----------------------------
+RANDOM_SEED = 42
+POP_SIZE = 60
+GENERATIONS = 50
+MUTATION_RATE = 0.25
+ELITISM_RATIO = 0.15    # top X fraction kept each generation
+POLL_INTERVAL = 6       # seconds between checking for live updates in demo (adjust in real system)
+WARM_START_ON_UPDATE = True
+
+random.seed(RANDOM_SEED)
+
+# ----------------------------
+# Priority weights & headway
+# ----------------------------
+PRIORITY_WEIGHTS = {"express": 3, "passenger": 2, "freight": 1}
+# Minimum headway (minutes) required between two trains on the same platform when scheduled back-to-back
+MIN_HEADWAY = 1
+
+# ----------------------------
+# Data model
+# Each train: id, type (express/passenger/freight), arrival(mins), cross_time(mins), platform (optional)
+# Example: {"id":"T1","type":"express","arrival":600,"cross_time":4,"platform":1}
+# ----------------------------
+
+
 
 # ----------------------------
 # Fitness function: models platforms, maintenance, headways, priorities
